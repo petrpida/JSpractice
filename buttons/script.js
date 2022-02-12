@@ -19,11 +19,11 @@ const btnEven = document.querySelectorAll("button:nth-child(even)");
 
 btnEven.forEach((el) => {
   window.addEventListener("keyup", function (event) {
-      if (event.key === 'x') {
-    el.classList.toggle("invisible");
-  }});
+    if (event.key === "x") {
+      el.classList.toggle("invisible");
+    }
+  });
 });
-
 
 /*  3) Kdyz uzivatel zmackne klavesu "y",
  *  liche buttonky (prvni a treti) zmizi nebo se znovu objevi (prepinani).
@@ -33,8 +33,24 @@ btnEven.forEach((el) => {
 const btnOdd = document.querySelectorAll("button:nth-child(odd)");
 
 btnOdd.forEach((el) => {
-    window.addEventListener("keyup", function (event) {
-        if (event.key === 'y') {
+  window.addEventListener("keyup", function (event) {
+    if (event.key === "y") {
       el.classList.toggle("invisible");
-    }});
+    }
   });
+});
+
+let pole = [
+  { key: 1, key1: 2 },
+  { key: 1, key1: 2 },
+  { key: 1, key1: 2 }
+];
+
+let novePole = [];
+pole.forEach((el) => {
+  novePole.push(el.key);
+});
+
+console.log(novePole);
+
+console.log(pole.map((el) => el.key));
