@@ -13,7 +13,7 @@
 }
 
 h1 {
-    width: 428px;
+    width: 426px;
     height: 46px;
     border: 1px solid black;
     border-radius: 5px;
@@ -26,6 +26,15 @@ table {
 
 button {
   width: 140px;
+}
+
+#invisible {
+  opacity: 0;
+}
+
+svg {
+  position: relative;
+  top: 4px;
 }
 
 tr {

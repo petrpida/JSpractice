@@ -16,11 +16,20 @@ const btnMultiply = document.getElementById("btnMultiply")
 const btnDivide = document.getElementById("btnDivide")
 const btnSubmit = document.getElementById("btnSubmit")
 const display = document.getElementById("display")
+const btnClear = document.getElementById("btnClear")
+const btnBackspace = document.getElementById("btnBackspace")
 
 // naprogramuj kazde tlacitko, aby na kliknuti vypsalo hodnotu do h1
-const displayedNumber = [];
-const number1 = [];
-const number2 = [];
+let displayedNumber = [];
+let number1 = [];
+let number2 = [];
+
+
+function clearArrays () {
+    displayedNumber = []
+    number1 = []
+    number2 = []
+}
 
 btn1.addEventListener("click", () => {
     displayedNumber.push("1")
@@ -31,13 +40,7 @@ btn1.addEventListener("click", () => {
     } else {
         number1.push("1")
     }
-    console.log('number1 is' + ' ' + number1.join(""))
-    console.log('number2 is' + ' ' + number2.join(""))
-    console.log(displayedNumber)
-
 })
-
-
 
 btn2.addEventListener("click", () => {
     displayedNumber.push("2")
@@ -48,39 +51,61 @@ btn2.addEventListener("click", () => {
     } else {
         number1.push("2")
     }
-    console.log('number1 is' + ' ' + number1.join(""))
-    console.log('number2 is' + ' ' + number2.join(""))
-    console.log(displayedNumber)
 })
 
 btn3.addEventListener("click", () => {
     displayedNumber.push("3")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("3")
+    } else {
+        number1.push("3")
+    }
 })
 
 btn4.addEventListener("click", () => {
     displayedNumber.push("4")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("4")
+    } else {
+        number1.push("4")
+    }
 })
 
 btn5.addEventListener("click", () => {
     displayedNumber.push("5")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("5")
+    } else {
+        number1.push("5")
+    }
 })
 
 btn6.addEventListener("click", () => {
     displayedNumber.push("6")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("6")
+    } else {
+        number1.push("6")
+    }
 })
 
 btn7.addEventListener("click", () => {
     displayedNumber.push("7")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("7")
+    } else {
+        number1.push("7")
+    }
 })
 
 
@@ -88,48 +113,110 @@ btn8.addEventListener("click", () => {
     displayedNumber.push("8")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("8")
+    } else {
+        number1.push("8")
+    }
 })
 
 btn9.addEventListener("click", () => {
     displayedNumber.push("9")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("9")
+    } else {
+        number1.push("9")
+    }
 })
 
 btn0.addEventListener("click", () => {
     displayedNumber.push("0")
     let str = displayedNumber.join("")
     display.innerText = str;
+    if (str.match(/\D/)) {
+        number2.push("0")
+    } else {
+        number1.push("0")
+    }
 })
 
 btnPlus.addEventListener("click", () => {
-    displayedNumber.push("+")
     let str = displayedNumber.join("")
-    display.innerText = str;
-    console.log(displayedNumber)
 
+    if (number1.length > 0 && !str.match(/\D/)) {
+        displayedNumber.push("+")
+        let str = displayedNumber.join("")
+        display.innerText = str;
+    }
 })
 
 btnMinus.addEventListener("click", () => {
-    displayedNumber.push("-")
     let str = displayedNumber.join("")
-    display.innerText = str;
-    console.log(displayedNumber)
 
+    if (number1.length > 0 && !str.match(/\D/)) {
+        displayedNumber.push("-")
+        let str = displayedNumber.join("")
+        display.innerText = str;
+    }
 })
 
 btnMultiply.addEventListener("click", () => {
-    displayedNumber.push("*")
     let str = displayedNumber.join("")
-    display.innerText = str;
-    console.log(displayedNumber)
 
+    if (number1.length > 0 && !str.match(/\D/)) {
+        displayedNumber.push("*")
+        let str = displayedNumber.join("")
+        display.innerText = str;
+    }
 })
 
 btnDivide.addEventListener("click", () => {
-    displayedNumber.push("/")
     let str = displayedNumber.join("")
-    display.innerText = str;
-    console.log(displayedNumber)
 
+    if (number1.length > 0 && !str.match(/\D/)) {
+        displayedNumber.push("/")
+        let str = displayedNumber.join("")
+        display.innerText = str;
+    }
 })
+
+btnSubmit.addEventListener("click", () => {
+    let number1String = number1.join("")
+    let number2String = number2.join("")
+    if (displayedNumber.includes("+")) {
+        display.innerText = parseInt(number1String) + parseInt(number2String)
+        clearArrays()
+    } else if (displayedNumber.includes("-")) {
+        display.innerText = parseInt(number1String) - parseInt(number2String)
+        clearArrays()
+    } else if (displayedNumber.includes("*")) {
+        display.innerText = parseInt(number1String) * parseInt(number2String)
+        clearArrays()
+    } else if (displayedNumber.includes("/")) {
+        display.innerText = parseInt(number1String) / parseInt(number2String)
+        clearArrays()
+    }
+})
+
+btnClear.addEventListener("click", () => {
+    clearArrays()
+    display.innerText = ""
+})
+
+btnBackspace.addEventListener("click", () => {
+    if (!number2.length > 0) {
+        number1.pop()
+        displayedNumber.pop()
+        display.innerText = displayedNumber.join("")
+    } else {
+        number2.pop()
+        displayedNumber.pop()
+        display.innerText = displayedNumber.join("")
+    }
+})
+
+//debug 
+//1. nuly na zacatku cisel
+//2. = po operatoru vraci NaN
