@@ -34,7 +34,7 @@ btn1.addEventListener("click", () => {
   displayedNumber.push("1");
   let str = displayedNumber.join("");
   display.innerText = str;
-  if (str.match(/\D/)) {
+  if (str.match(/\D/)) { // /0-9/
     number2.push("1");
   } else {
     number1.push("1");
