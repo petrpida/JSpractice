@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+}
+
+.member {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.pet {
+    margin-top: 50px;
+    text-align: center;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    text-decoration: underline;
+}
+
+label {
+    display: block;
+    margin: 2px;
+}
+
+input, select {
+    padding: 2px 20px;
+    text-align: left;
+    border-radius: 5px;
+    width: 330px;
+    border: 2px solid gray;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(175, 175, 175);
+}
+
+.submit {
+    margin: 50px auto;
+    background-color: lightgreen;
+}
+
+.submit:hover {
+    background-color: rgb(31, 182, 31);
+}
