@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.pet {
+.pet, .pet1 {
     margin-top: 50px;
     text-align: center;
 }
@@ -52,4 +52,17 @@ button:hover {
 
 .submit:hover {
     background-color: rgb(31, 182, 31);
+}
+
+input.danger {
+    border-color: red;
+}
+
+form p {
+    font-size: 16px;
+    color: red;
+}
+
+.required {
+    display: none;
 }
